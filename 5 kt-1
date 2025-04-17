@@ -1,0 +1,16 @@
+grades_input = input("Введите оценки через запятую: ")
+
+grades = list(map(int, grades_input.split(',')))
+
+filtered_grades = []
+for i in range(len(grades)):
+    if grades[i] == 2 and (i + 1 < len(grades) and grades[i + 1] != 2):
+        continue 
+    filtered_grades.append(grades[i])
+
+if len(filtered_grades) > 0:  
+    average = round(sum(filtered_grades) / len(filtered_grades))
+else:
+    average = 0  
+
+print(f"Итоговая оценка за четверть: {average}")
